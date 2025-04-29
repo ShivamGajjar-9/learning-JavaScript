@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Snake Game Delayed Boost</title>
+    <style>
+      body {
+        margin: 0;
+        background: black;
+        overflow: hidden;
+      }
+      .snake {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: lime;
+        border-radius: 4px;
+      }
+      .food {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: red;
+        border-radius: 4px;
+      }
+      .score {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        color: white;
+        font-size: 24px;
+        font-family: Arial;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="score" id="score">Score: 0</div>
+
+    <script>
+      let snake = [{ x: 200, y: 200 }];
+      let dx = 20,
+        dy = 0;
+      let keysPressed = {};
+      let boostTimeout = null;
+      let boosted = false;
+      let normalSpeed = 150;
+      let fastSpeed = 75;
+      let timer;
+      let score = 0;
+
+      function createPart(x, y) {
+        const part = document.createElement("div");
+        part.className = "snake";
+        part.style.left = x + "px";
+        part.style.top = y + "px";
+        document.body.appendChild(part);
+        return part;
+      }
+
+      function spawnFood() {
+        if (food.elem) document.body.removeChild(food.elem);
+        let foodX = Math.floor(Math.random() * (window.innerWidth / 20)) * 20;
+        let foodY = Math.floor(Math.random() * (window.innerHeight / 20)) * 20;
+        food = { x: foodX, y: foodY };
+        const elem = document.createElement("div");
+        elem.className = "food";
+        elem.style.left = food.x + "px";
+        elem.style.top = food.y + "px";
+        document.body.appendChild(elem);
+        food.elem = elem;
+      }
+
+      function drawSnake() {
+        document
+          .querySelectorAll(".snake")
+          .forEach((e) => document.body.removeChild(e));
+        snake.forEach((part) => createPart(part.x, part.y));
+      }
+
+      function move() {
+        let steps = boosted ? 3 : 1;
+
+        for (let i = 0; i < steps; i++) {
+          let head = { x: snake[0].x + dx, y: snake[0].y + dy };
+
+          // Wall collision
+          if (
+            head.x < 0 ||
+            head.x >= window.innerWidth ||
+            head.y < 0 ||
+            head.y >= window.innerHeight
+          ) {
+            gameOver();
+            return;
+          }
+
+          // Self collision
+          for (let part of snake) {
+            if (part.x === head.x && part.y === head.y) {
+              gameOver();
+              return;
+            }
+          }
+
+          snake.unshift(head);
+
+          // Eating food
+          if (head.x === food.x && head.y === food.y) {
+            score++;
+            document.getElementById("score").innerText = "Score: " + score;
+            spawnFood();
+          } else {
+            snake.pop();
+          }
+        }
+
+        drawSnake();
+      }
+
+      function gameOver() {
+        clearInterval(timer);
+        alert("Game Over! Final Score: " + score);
+        location.reload();
+      }
+
+      document.addEventListener("keydown", function (e) {
+        if (
+          ["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.key)
+        ) {
+          if (e.key === "ArrowUp" && dy === 0) {
+            dx = 0;
+            dy = -20;
+          }
+          if (e.key === "ArrowDown" && dy === 0) {
+            dx = 0;
+            dy = 20;
+          }
+          if (e.key === "ArrowLeft" && dx === 0) {
+            dx = -20;
+            dy = 0;
+          }
+          if (e.key === "ArrowRight" && dx === 0) {
+            dx = 20;
+            dy = 0;
+          }
+
+          if (!keysPressed[e.key]) {
+            keysPressed[e.key] = true;
+
+            // Start 1s timer to boost
+            boostTimeout = setTimeout(() => {
+              boosted = true;
+            }, 500);
+          }
+        }
+      });
+
+      document.addEventListener("keyup", function (e) {
+        if (keysPressed[e.key]) {
+          delete keysPressed[e.key];
+
+          // Stop boosting immediately
+          boosted = false;
+
+          // Cancel waiting boost if not yet boosted
+          if (boostTimeout) {
+            clearTimeout(boostTimeout);
+            boostTimeout = null;
+          }
+        }
+      });
+
+      let food = {};
+      spawnFood();
+      drawSnake();
+      timer = setInterval(move, normalSpeed);
+    </script>
+  </body>
+</html>

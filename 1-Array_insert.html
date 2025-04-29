@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Insert Element in Array</title>
+    <script language="javascript">
+      // let data = [67, 45, 84, 10, 99];
+      // let newD = [];
+      // let newEL = 34;
+      // let p = 2;
+      // for (let i = data.length; i >= 0; i--) {
+      //   if (i > p) {
+      //     data[i] = data[i - 1];
+      //     if (i == p) {
+      //       data[i] = newEL;
+      //     }
+      //   }
+
+      //   console.warn(data[i]);
+      // }
+      // console.warn(data);
+      document.writeln(`hello jignesh ${new Date()}`);
+      document.writeln("Insert Element in Array<br>");
+      function insertEL() {
+        let data = [67, 45, 84, 10, 99];
+        let newD = [];
+        let p = document.getElementById("position").nodeValue;
+        let newEL = document.getElementById("element").nodeValue;
+        for (let i = data.length; i >= 0; i--) {
+          if (i > p) {
+            newD[i + 1] = data[i];
+            if (i == p) {
+              newD[i] = newEL;
+            } else {
+              newD[i] = data[i];
+            }
+          }
+
+          // console.warn(data[i]);
+        }
+        console.log(newD);
+      }
+    </script>
+  </head>
+  <body>
+    <input
+      type="number"
+      id="position"
+      placeholder="Enter Postion where you want to Insert"
+    />
+    <input type="text" id="element" placeholder="Enter Element" />
+    <button onclick="insertEL()">Add</button>
+  </body>
+</html>

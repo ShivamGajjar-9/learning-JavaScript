@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add</title>
+  </head>
+  <script language="javascript">
+    let n1 = parseInt(window.prompt("Enter First Number : "));
+    let n2 = parseInt(window.prompt("Enter Second Number : "));
+    let n3 = parseInt(window.prompt("Enter  your age : "));
+    n1 = Number(n1);
+    n2 = Number(n2);
+
+    const add = (a, b) => {
+      return a + b;
+    };
+    const sub = (a, b) => {
+      return a - b;
+    };
+    console.log(add(n1, n2));
+    console.log(sub(n2, n1));
+    document.writeln(`Addition of ${n1} + ${n2} is : <br>  ${add(n1, n2)}<br>`);
+    document.writeln(
+      `Subtraction of ${n1} - ${n2} is : <br>  ${sub(n1, n2)} <br>`
+    );
+  </script>
+  <body></body>
+</html>
