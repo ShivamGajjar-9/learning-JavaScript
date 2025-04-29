@@ -159,3 +159,32 @@ Create Table table_name
 12. **DECIMAL(size, d)**      - Fixed-point number (e.g., `size=60`, `d=30`).
 
 13. **DEC(size, d)**     - Alias for `DECIMAL(size, d)`.
+
+### creating a users table
+
+```
+CREATE TABLE users
+(
+    id int unsigned,
+    name varchar(100),
+    email varchar(150),
+    password varchar(100),
+    contact varchar(15),
+    address text,
+    dob date,
+    gender enum("M","F","O"),
+    status boolean
+)
+```
+##### this will crate a table with 
+### Table: users
+#### Attributes:
+- id
+- name
+- email
+- password
+- contact
+- address
+- dob
+- gender
+- status
