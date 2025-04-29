@@ -40,7 +40,7 @@ use database;
 ```
 # 3. Tables in MySQL
 ###### Database table is a collection of rows and columns that contains relational data. 
-- ex
+
 | Id | Name  | Email            | DOB        |
 |----|-------|------------------|------------|
 | 1  | Ramesh | ramesh@gmail.com | 10-01-1999 |
