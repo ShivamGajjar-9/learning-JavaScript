@@ -188,3 +188,32 @@ CREATE TABLE users
 - dob
 - gender
 - status
+
+# 4. Insert
+###### it is used to enter data in a table
+###### you can enter data in single row or multiple rows at same time
+#### 4.1 Insert Single Row
+```
+INSERT INTO table_name
+( column1, column2, column3, ... )
+VALUES (value1, value2, value3, ...);
+
+```
+
+###### ex
+```
+use learning2025;
+INSERT INTO users (
+id, name, email, password, contact, address, dob, gender, status)
+VALUES (1, "shivam", "shivamgajjar15@gmail.com", "fni59IBC%$#", "7016935939", "Ahemdabad, Gujarat", "2004-06-09", "M", 1)
+```
+#### 4.2 Inserting multiple Rows
+```
+use learning2025;
+INSERT INTO users (
+id, name, email, password, contact, address, dob, gender, status)
+VALUES (2, "ramesh", "ramesh355@gmail.com", "25cin5i#$X$", "5255653542", "Gandhinager, Gujarat", "2001-06-30", "M", 1),
+(3, "suresh", "suresh4425c5@gmail.com", "4x9n#XB@KBBU$", "9998456416", "Agra, Up", "1996-10-03", "M", 1),
+(4, "shila", "shilajavani123@hotmail.com", "45xuz5jib$", "888925252", "surat, gujarat", "1998-04-20", "F", 1)
+
+```
