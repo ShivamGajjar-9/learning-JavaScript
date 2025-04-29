@@ -34,11 +34,11 @@ show databases;
 ```
 create database DBname;
 ```
-######ex
+###### ex
 ```
 create database learnings;
 ```
-###### - will create a database named learnings
+###### will create a database named learnings
 ### how to use database 
 ```
 use database;
