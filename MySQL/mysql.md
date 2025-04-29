@@ -154,8 +154,7 @@ Create Table table_name
 
 10. **FLOAT(p)**     - Floating-point number with precision `p`.
 
-11. **DOUBLE(size, d)**     - Double-precision float (e.g., `255.568`). 
-   - `size`: Total digits, `d`: Decimal places.
+11. **DOUBLE(size, d)**     - Double-precision float (e.g., `255.568`).    - `size`: Total digits, `d`: Decimal places.
 
 12. **DECIMAL(size, d)**      - Fixed-point number (e.g., `size=60`, `d=30`).
 
