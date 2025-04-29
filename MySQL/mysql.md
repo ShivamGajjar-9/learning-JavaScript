@@ -69,10 +69,20 @@ Create Table table_name
 ```
 #### <div align="center"> String Data Types </div>
 
-1. CHAR(size) 0 to 255
-2. VARCHAR(size) 0 to 65535
-3. BINARY(size) 1
-4. VARBINARY(size)
+1. CHAR(size) 0 to 255   -characters
+2. VARCHAR(size) 0 to 65535   -characters
+3. BINARY(size)      -Bytes
+4. VARBINARY(size)      -Bytes
+5. TINYTEXT 255    -characters
+6. TEXT(size) 65535      -bytes
+7. MEDIUMTEXT 16,777,215 characters
+8. LONGTEXT 4,294,967,295 characters
+9. TINYBLOB 255 bytes
+10. BLOB(size) 65,535 bytes
+11. MEDIUMBLOB 16,777,215 bytes
+12. LONGBLOB 4,294,967,295 bytees
+13. ENUM(val1, val2, val3, ...) list up to 65535 values
+14. SET(val1, val2, val3, ...) list up to 64 values
 
 ###### In SQL, BINARY and VARBINARY are data types used to store binary data (like images, files, or raw bytes). difference between them, including their size specifications:
 
@@ -120,3 +130,46 @@ Create Table table_name
 ###### SQL Server: Up to 8,000 bytes (or MAX for very large data).
 
 ###### PostgreSQL: Uses BYTEA (similar to VARBINARY) with no explicit size limit.
+
+
+### <div align = "center"> Number Data Types </div>
+
+1. **BIT(size)**  
+   - Stores 1 to 64 bits (binary values).
+
+2. **TINYINT(size)**  
+   - Range: `-128` to `127` (signed) or `0` to `255` (unsigned).
+
+3. **INT(size)**  
+   - Range: `-2,147,483,648` to `2,147,483,647` (signed).
+
+4. **INTEGER(size)**  
+   - Alias for `INT(size)`.
+
+5. **SMALLINT(size)**  
+   - Range: `-32,768` to `32,767` (signed).
+
+6. **MEDIUMINT(size)**  
+   - Range: `-8,388,608` to `8,388,607` (signed).
+
+7. **BIGINT(size)**  
+   - Range: `-9,223,372,036,854,775,808` to `9,223,372,036,854,775,807` (signed).
+
+8. **BOOL**  
+   - Synonym for `TINYINT(1)` (stores `0` or `1`).
+
+9. **BOOLEAN**  
+   - Same as `BOOL` (`0` = false, `1` = true).
+
+10. **FLOAT(p)**  
+    - Floating-point number with precision `p`.
+
+11. **DOUBLE(size, d)**  
+    - Double-precision float (e.g., `255.568`).  
+    - `size`: Total digits, `d`: Decimal places.
+
+12. **DECIMAL(size, d)**  
+    - Fixed-point number (e.g., `size=60`, `d=30`).
+
+13. **DEC(size, d)**  
+    - Alias for `DECIMAL(size, d)`.
