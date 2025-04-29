@@ -67,9 +67,7 @@ Create Table table_name
     .....
 ),
 ```
-<div align="center">
-#### String Data Types
-</div>
+#### <div align="center"> String Data Types </div>
 
 1. CHAR(size) 0 to 255
 2. VARCHAR(size) 0 to 65535
