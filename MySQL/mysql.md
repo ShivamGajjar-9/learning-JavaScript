@@ -134,42 +134,29 @@ Create Table table_name
 
 ### <div align = "center"> Number Data Types </div>
 
-1. **BIT(size)**  
-   - Stores 1 to 64 bits (binary values).
+1. **BIT(size)**   - Stores 1 to 64 bits (binary values).
 
-2. **TINYINT(size)**  
-   - Range: `-128` to `127` (signed) or `0` to `255` (unsigned).
+2. **TINYINT(size)**    - Range: `-128` to `127` (signed) or `0` to `255` (unsigned).
 
-3. **INT(size)**  
-   - Range: `-2,147,483,648` to `2,147,483,647` (signed).
+3. **INT(size)**     - Range: `-2,147,483,648` to `2,147,483,647` (signed).
 
-4. **INTEGER(size)**  
-   - Alias for `INT(size)`.
+4. **INTEGER(size)**     - Alias for `INT(size)`.
 
-5. **SMALLINT(size)**  
-   - Range: `-32,768` to `32,767` (signed).
+5. **SMALLINT(size)**     - Range: `-32,768` to `32,767` (signed).
 
-6. **MEDIUMINT(size)**  
-   - Range: `-8,388,608` to `8,388,607` (signed).
+6. **MEDIUMINT(size)**    - Range: `-8,388,608` to `8,388,607` (signed).
 
-7. **BIGINT(size)**  
-   - Range: `-9,223,372,036,854,775,808` to `9,223,372,036,854,775,807` (signed).
+7. **BIGINT(size)**    - Range: `-9,223,372,036,854,775,808` to `9,223,372,036,854,775,807` (signed).
 
-8. **BOOL**  
-   - Synonym for `TINYINT(1)` (stores `0` or `1`).
+8. **BOOL**     - Synonym for `TINYINT(1)` (stores `0` or `1`).
 
-9. **BOOLEAN**  
-   - Same as `BOOL` (`0` = false, `1` = true).
+9. **BOOLEAN**     - Same as `BOOL` (`0` = false, `1` = true).
 
-10. **FLOAT(p)**  
-    - Floating-point number with precision `p`.
+10. **FLOAT(p)**     - Floating-point number with precision `p`.
 
-11. **DOUBLE(size, d)**  
-    - Double-precision float (e.g., `255.568`).  
-    - `size`: Total digits, `d`: Decimal places.
+11. **DOUBLE(size, d)**     - Double-precision float (e.g., `255.568`). 
+   - `size`: Total digits, `d`: Decimal places.
 
-12. **DECIMAL(size, d)**  
-    - Fixed-point number (e.g., `size=60`, `d=30`).
+12. **DECIMAL(size, d)**      - Fixed-point number (e.g., `size=60`, `d=30`).
 
-13. **DEC(size, d)**  
-    - Alias for `DECIMAL(size, d)`.
+13. **DEC(size, d)**     - Alias for `DECIMAL(size, d)`.
