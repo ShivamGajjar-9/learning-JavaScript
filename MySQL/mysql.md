@@ -34,13 +34,18 @@ show databases;
 ```
 create database DBname;
 ```
+######ex
+```
+create database learnings;
+```
+###### - will create a database named learnings
 ### how to use database 
 ```
 use database;
 ```
 # 3. Tables in MySQL
 ###### Database table is a collection of rows and columns that contains relational data. 
-
+ex :- 
 | Id | Name  | Email            | DOB        |
 |----|-------|------------------|------------|
 | 1  | Ramesh | ramesh@gmail.com | 10-01-1999 |
